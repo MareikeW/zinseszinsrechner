@@ -10,7 +10,7 @@ body {
   text-align: center;
 }
 
-.sparformular {
+.zinsformular {
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -20,7 +20,7 @@ body {
   background-color: lightgreen;
 }
 
-.sparformular input {
+.zinsformular input {
   margin: 1em auto;
   border-radius: 8px;
   text-align: center;
@@ -28,7 +28,7 @@ body {
   font-size: 1em;
 }
 
-.sparformular button {
+.zinsformular button {
   margin: 1em auto;
   padding: 0.5em 1em;
   border: lightcoral solid;
@@ -38,8 +38,8 @@ body {
   border-radius: 8px;
 }
 
-.sparformular button:hover,
-.sparformular button:focus {
+.zinsformular button:hover,
+.zinsformular button:focus {
   cursor: pointer;
   border-color: black;
 }
