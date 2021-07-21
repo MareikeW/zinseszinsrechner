@@ -61,16 +61,16 @@ const Zinseszinsrechner = () => {
         */
         for (let i = 1; i <= daten.jahre; i++) {
             jahreArray.push(i);
-            jährlichesEndkapitalArray.push(daten.anfangskapital * ((1 + (daten.zinsrate / 100))**i));
-
-            setJahre(jahreArray);
-            setEndkapital(jährlichesEndkapitalArray);
-
-            calcZinsen(jährlichesEndkapitalArray);
-            calcAnfangskapital(jährlichesEndkapitalArray, jahreArray);
-
-            setIsButtonClicked(true);
+            jährlichesEndkapitalArray.push(daten.anfangskapital * ((1 + (daten.zinsrate / 100))**i));      
         }
+
+        setJahre(jahreArray);
+        setEndkapital(jährlichesEndkapitalArray);
+
+        calcZinsen(jährlichesEndkapitalArray);
+        calcAnfangskapital(jährlichesEndkapitalArray, jahreArray);
+
+        setIsButtonClicked(true);
     }
 
     return (
