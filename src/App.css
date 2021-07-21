@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;600&display=swap');
+
+body {
+  background-color: whitesmoke;
+  font-family: 'Hind', sans-serif;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.sparformular {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 300px;
+  border-radius: 8px;;
+  margin: 0 auto;
+  background-color: lightgreen;
+}
+
+.sparformular input {
+  margin: 1em auto;
+  border-radius: 8px;
+  text-align: center;
+  padding: 0.25em;
+  font-size: 1em;
+}
+
+.sparformular button {
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  border: lightcoral solid;
+  background-color: lightcoral;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+.sparformular button:hover,
+.sparformular button:focus {
+  cursor: pointer;
+  border-color: black;
+}
+
+.tabelle {
+  margin: 2em auto;
+  border-spacing: 0;
+  border-style: ridge;
+  border-color: antiquewhite;
+}
+
+.tabelle__heading {
+  padding: 1em;
+  background: lightgreen;
+}
+
+.tabelle__cell {
+  padding: 0.5em 1em;
+}
