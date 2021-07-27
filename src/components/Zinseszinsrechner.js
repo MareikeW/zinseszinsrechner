@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import Diagramm from "./Diagramm";
 import Tabelle from "./Tabelle";
 
 const Zinseszinsrechner = () => {
@@ -28,15 +29,18 @@ const Zinseszinsrechner = () => {
         })
     }
 
-    function calcZinsen(jährlichesEndkapital) {
+    // Wenn die Zustände aktualisiert wurden, werden die Zinsen berechnet und setIsButtonClicked auf true gesetzt.
+    useEffect(() => {
         let jährlicheZinsenArray = [];
 
-        jährlicheZinsenArray = jährlichesEndkapital.map(currentValue => {
-            return currentValue - daten.anfangskapital;
+        jährlicheZinsenArray = endkapital.map((currentValue, index) => {
+            return currentValue - anfangskapital[index];
         })
 
         setZinsen(jährlicheZinsenArray);
-    }
+        setIsButtonClicked(true);
+    }, [anfangskapital, endkapital]);
+
 
     function calcAnfangskapital(jährlichesEndkapital, anzahlJahre) {
         let jährlichesAnfangskapitalArray = [];
@@ -67,10 +71,7 @@ const Zinseszinsrechner = () => {
         setJahre(jahreArray);
         setEndkapital(jährlichesEndkapitalArray);
 
-        calcZinsen(jährlichesEndkapitalArray);
         calcAnfangskapital(jährlichesEndkapitalArray, jahreArray);
-
-        setIsButtonClicked(true);
     }
 
     return (
@@ -113,6 +114,7 @@ const Zinseszinsrechner = () => {
             </form>
 
             {isButtonClicked ? <Tabelle jahr={jahre} zinsen={zinsen} anfangskapital={anfangskapital} endkapital={endkapital}/> : null}
+            {isButtonClicked ? <Diagramm jahr={jahre} endkapital={endkapital}/>: null}
         </div>
     )
 }
