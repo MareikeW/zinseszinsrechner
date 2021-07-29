@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Tabelle from "./Tabelle";
 
 const Zinseszinsrechner = () => {
@@ -28,15 +28,18 @@ const Zinseszinsrechner = () => {
         })
     }
 
-    function calcZinsen(jährlichesEndkapital) {
-        let jährlicheZinsenArray = [];
+    useEffect(() => {
+        let jährlichesZinsenArray = [];
 
-        jährlicheZinsenArray = jährlichesEndkapital.map(currentValue => {
-            return currentValue - daten.anfangskapital;
-        })
+        jährlichesZinsenArray = endkapital.map((currentValue, index) => {
+            return currentValue - anfangskapital[index];
+        });
 
-        setZinsen(jährlicheZinsenArray);
-    }
+        setZinsen(jährlichesZinsenArray);
+
+        jährlichesZinsenArray.length > 0 ? setIsButtonClicked(true) : setIsButtonClicked(false);
+
+    }, [anfangskapital, endkapital])
 
     function calcAnfangskapital(jährlichesEndkapital, anzahlJahre) {
         let jährlichesAnfangskapitalArray = [];
@@ -67,10 +70,7 @@ const Zinseszinsrechner = () => {
         setJahre(jahreArray);
         setEndkapital(jährlichesEndkapitalArray);
 
-        calcZinsen(jährlichesEndkapitalArray);
         calcAnfangskapital(jährlichesEndkapitalArray, jahreArray);
-
-        setIsButtonClicked(true);
     }
 
     return (
