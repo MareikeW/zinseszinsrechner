@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Tabelle from "./Tabelle";
+import Diagramm from "./Diagramm";
 
 const Zinseszinsrechner = () => {
     const [daten, setDaten] = useState({
@@ -113,6 +114,7 @@ const Zinseszinsrechner = () => {
             </form>
 
             {isButtonClicked ? <Tabelle jahr={jahre} zinsen={zinsen} anfangskapital={anfangskapital} endkapital={endkapital}/> : null}
+            {isButtonClicked ? <Diagramm jahre={jahre} endkapital={endkapital} /> : null}
         </div>
     )
 }
